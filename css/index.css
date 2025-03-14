@@ -1,0 +1,125 @@
+/* 商品卡片样式 */
+.product-card {
+    transition: transform 0.2s;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+}
+
+.product-img {
+    height: 100% auto;
+    object-fit: cover;
+    border-bottom: 1px solid #eee;
+}
+
+/* 购物车侧边栏 */
+.cart-sidebar {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    transition: right 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 20px;
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.cart-open {
+    right: 0;
+}
+
+/* 支付弹窗 */
+.payment-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1001;
+    display: none;
+}
+
+.qrcode-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+/* 支付方式切换 */
+.payment-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.payment-tab {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #f8f9fa;
+    color: #666;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.payment-tab.active {
+    background: #007bff;
+    color: white;
+}
+
+.qrcode-content {
+    display: none;
+}
+
+.qrcode-content.active {
+    display: block;
+}
+
+/* 移动端优化 */
+@media (max-width: 576px) {
+    .payment-tab {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+/* 提示信息 */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 14px;
+    z-index: 1002;
+    animation: toastSlide 0.3s ease-out forwards;
+    opacity: 0;
+}
+
+@keyframes toastSlide {
+    0% {
+        opacity: 0;
+        bottom: 20px;
+    }
+
+    100% {
+        opacity: 1;
+        bottom: 30px;
+    }
+}
